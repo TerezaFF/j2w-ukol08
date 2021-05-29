@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Můj blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/normalize.css" th:href="@{/css/normalize.css}">
+    <link rel="stylesheet" href="/css/skeleton.css" th:href="@{/css/skeleton.css}">
+    <link rel="stylesheet" href="/css/main.css" th:href="@{/css/main.css}">
+    <link rel="icon" type="image/png" href="/images/favicon.png" th:href="@{/images/favicon.png}">
+</head>
+<body>
+
+<header>
+    <h1>Blog</h1>
+</header>
+
+<section>
+    <div th:each="post: ${seznam}">
+        <h2 th:text="${post.title}">Lorem ipsum dolor sit amet.</h2>
+        <p><span>Autor: </span><span th:text="${post.author}">Nunc lobortis</span></p>
+        <p><span>Publikováno: </span> <span th:text="${post.published}">dignissim urna</span></p>
+        <p th:utext="${post.perex}"> Ut ut diam sed lorem hendrerit finibus consequat et orci. Phasellus ut pulvinar
+            lorem. Suspendisse eget diam ligula. Integer porttitor viverra ipsum vitae venenatis. Lorem ipsum dolor sit
+            amet, consectetur adipiscing elit. Quisque tincidunt leo in velit lacinia aliquam.</p>
+        <div class="controls">
+            <a href="/detail" th:href="@{/(slug=${post.slug})}" class="button">Přečíst</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>Alea iacta est</p>
+</footer>
+
+</body>
+</html>
