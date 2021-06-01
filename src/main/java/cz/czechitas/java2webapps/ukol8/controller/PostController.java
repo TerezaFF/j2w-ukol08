@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -23,9 +24,11 @@ public class PostController {
         return new ModelAndView("seznam").addObject("seznam", service.findByPublishedBeforeAndPublishedNotNull());
     }
 
-    @GetMapping(path = "/", params = "slug")
-    public ModelAndView detail(String slug) {
-        return new ModelAndView("detail").addObject("detail", service.findByslug(slug));
+    @GetMapping(path = "/post/{slug}")
+    public ModelAndView detail(@PathVariable String slug) {
+        return new ModelAndView("detail").addObject("post", service.findBySlug(slug));
     }
+
+
 
 }

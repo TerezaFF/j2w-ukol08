@@ -14,9 +14,7 @@ import java.time.LocalDate;
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
 
-    Pageable page20 = PageRequest.of(0, 20, Sort.by("published").descending());
-
-    Page<Post> findByslug(String slug, Pageable pageable);
+    Post findBySlug(String slug);
 
     Page<Post> findByPublishedBeforeAndPublishedNotNull (LocalDate today, Pageable page20);
 

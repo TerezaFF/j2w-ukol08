@@ -25,7 +25,7 @@
             lorem. Suspendisse eget diam ligula. Integer porttitor viverra ipsum vitae venenatis. Lorem ipsum dolor sit
             amet, consectetur adipiscing elit. Quisque tincidunt leo in velit lacinia aliquam.</p>
         <div class="controls">
-            <a href="/detail" th:href="@{/(slug=${post.slug})}" class="button">Přečíst</a>
+            <a href="/detail" th:href="@{/post/{slug}(slug=${post.slug})}" class="button">Přečíst</a>
         </div>
     </div>
 </section>
